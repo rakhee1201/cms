@@ -1,0 +1,46 @@
+ul{
+    list-style: none;
+}
+ul>li{
+    gap:0;
+    background-color: aquamarine;
+    padding: 10px;
+    margin: 5px 0px;
+    width: 300px;
+    border-radius: 5px;
+}
+ul>li>p{
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+.pop-up{
+    position: absolute;
+    background-color: aquamarine;
+    padding: 0px 15px;
+    border-radius: 5px;
+    height: 160px;
+    width: 300px;
+    margin:auto auto;
+    margin-left: 30%;
+    flex-shrink: 1;
+    text-align: center;
+    flex-grow: 2;
+
+}
+
+.pop-up>div{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.pop-up>div>button{
+    width: 75px;
+    height: 25px;
+}
+.hide-popup{
+    display: none;
+}
+.show-popup{
+    display:block;
+}
