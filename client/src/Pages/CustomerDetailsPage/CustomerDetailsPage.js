@@ -14,8 +14,8 @@ const CustomerDetailsPage = () => {
   
 
   const getCustomerDetails=async()=>{
-    const r=await fetch(`http://localhost:3030/api/customers/${params.id}`);
-    const addressesResponse=await fetch(`http://localhost:3030/api/customers/${params.id}/addresses`)
+    const r=await fetch(`https://cms-backend-9ied.onrender.com/api/customers/${params.id}`);
+    const addressesResponse=await fetch(`https://cms-backend-9ied.onrender.com/api/customers/${params.id}/addresses`)
     
     if(addressesResponse.ok){
       let data=await addressesResponse.json();
@@ -50,7 +50,7 @@ const CustomerDetailsPage = () => {
 
 
   const delAdd=async()=>{
-    const r=await fetch(`http://localhost:3030/api/addresses/${delEle}`,{method:"DELETE",headers:{"Content-Type":"application/json","Accept":"application/json"}})
+    const r=await fetch(`https://cms-backend-9ied.onrender.com/api/addresses/${delEle}`,{method:"DELETE",headers:{"Content-Type":"application/json","Accept":"application/json"}})
     const d=await r.json();
     if(d.success){
       toast(d.success_msg);

@@ -12,7 +12,7 @@ const CustomerFormPage = () => {
 
   const addNewCustomer=async()=>{
     if(customer.first_name!==undefined && customer.last_name!==undefined && customer.phone_number!==undefined){
-      const r=await fetch(`http://localhost:3030/api/customers`,{method:"POST",headers:{"Content-Type" : "application/json","Accept":"application/json"},body:JSON.stringify(customer)});
+      const r=await fetch(`https://cms-backend-9ied.onrender.com/api/customers`,{method:"POST",headers:{"Content-Type" : "application/json","Accept":"application/json"},body:JSON.stringify(customer)});
       let data;
       if(r.ok){
          data=await r.json();
@@ -32,12 +32,12 @@ const CustomerFormPage = () => {
   }
 
   const updateCustomer=async()=>{
-    const response=await fetch(`http://localhost:3030/api/customers/${params.id}`)
+    const response=await fetch(`https://cms-backend-9ied.onrender.com/api/customers/${params.id}`)
     const existedCustomer=await response.json();
     if(existedCustomer.customer.first_name===customer.first_name && existedCustomer.customer.last_name===customer.last_name && existedCustomer.customer.phone_number===customer.phone_number){
         toast("There are no updates to update");
     }else{
-      const r=await fetch(`http://localhost:3030/api/customers/${params.id}`,{method:"PUT",headers:{"Content-Type" : "application/json","Accept":"application/json"},body:JSON.stringify(customer)});
+      const r=await fetch(`https://cms-backend-9ied.onrender.com/api/customers/${params.id}`,{method:"PUT",headers:{"Content-Type" : "application/json","Accept":"application/json"},body:JSON.stringify(customer)});
       const d=await r.json();
       if(d.success){
         toast(d.success_msg);
@@ -58,7 +58,7 @@ const CustomerFormPage = () => {
   }
 
   const getCustData=async()=>{
-    const customerResponse =await fetch(`http://localhost:3030/api/customers/${params.id}`) 
+    const customerResponse =await fetch(`https://cms-backend-9ied.onrender.com/api/customers/${params.id}`) 
     if(customerResponse.ok){
       let data=await customerResponse.json();
       if(data.success){

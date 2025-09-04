@@ -13,7 +13,7 @@ const AddressForm = () => {
   const navigate=useNavigate();
 
   const getExistedAddress=async()=>{
-    const call=await fetch(`http://localhost:3030/addresses/${addressId}`);
+    const call=await fetch(`https://cms-backend-9ied.onrender.com/addresses/${addressId}`);
     const response=await call.json();
     if(response.success){
       setAddress(response.address);
@@ -28,7 +28,7 @@ const AddressForm = () => {
 
   const addAddress=async()=>{
     if(address.address_details!==undefined && address.city!==undefined && address.state!==undefined && address.pin_code!==undefined && customerId!==undefined){
-      const call=await fetch(`http://localhost:3030/api/customers/${customerId}/addresses`,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(address)});
+      const call=await fetch(`https://cms-backend-9ied.onrender.com/api/customers/${customerId}/addresses`,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(address)});
       const response=await call.json();
       console.log(response);
       if(response.success){
@@ -47,7 +47,7 @@ const AddressForm = () => {
 
   const updateAddress=async()=>{
     if(isAddressChanged){
-      const r=await fetch(`http://localhost:3030/api/addresses/${addressId}`,{method:"PUT",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(address)});
+      const r=await fetch(`https://cms-backend-9ied.onrender.com/api/addresses/${addressId}`,{method:"PUT",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(address)});
       const d=await r.json();
       if(d.success){
         toast(d.success_msg);

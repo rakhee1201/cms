@@ -13,7 +13,7 @@ const CustomerListPage = () => {
    
     
     const getCustomers=async()=>{
-        const response=await fetch('http://localhost:3030/api/customers');
+        const response=await fetch('https://cms-backend-9ied.onrender.com/api/customers');
         let data;
         if(response.ok){
             data=await response.json();
@@ -36,7 +36,7 @@ const CustomerListPage = () => {
 
     const deleteCustomer=async (id)=>{
         if(prompt("Are you sure to want to delete..?")===""){
-            const delCusr=await fetch(`http://localhost:3030/api/customers/${id}`,{method:"DELETE",headers:{"Content-Type":"application/json","Accept":"application/json"}})
+            const delCusr=await fetch(`https://cms-backend-9ied.onrender.com/api/customers/${id}`,{method:"DELETE",headers:{"Content-Type":"application/json","Accept":"application/json"}})
             const delCusd=await delCusr.json();
             if(delCusd.success){
                 toast(delCusd.success_msg)
